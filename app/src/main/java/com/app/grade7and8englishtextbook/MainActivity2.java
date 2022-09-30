@@ -19,7 +19,9 @@ public class MainActivity2 extends AppCompatActivity {
         int book_position=getIntent().getIntExtra("key_position",0);
 
         if (book_position==0){
+
             pdfView.fromAsset("English G 7 .pdf").load();
+
         }
         else if (book_position==1){
             pdfView.fromAsset("English G 8 .pdf").load();
