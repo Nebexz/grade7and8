@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Grade 7 and 8 English Textbook</string>
+
+    <string-array name="books">
+        <item>Grade 7 English</item>
+        <item>Grade 8 English</item>
+    </string-array>
+</resources>
