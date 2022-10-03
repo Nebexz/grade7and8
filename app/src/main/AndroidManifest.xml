@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/english_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Grade7And8MathsTextbook">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7070396777212212~8828361290"/>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".MainActivity2"
-
             android:exported="false" />
         <activity
             android:label="G7 and G8 English TextBook"
