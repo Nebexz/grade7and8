@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.webkit.WebSettings;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.view.MenuItem;
+
+import android.widget.ImageView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,24 +16,44 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageButton button=findViewById(R.id.imageButton);
-        ImageButton button1=findViewById(R.id.imageButton2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
-                intent.putExtra("pdf_url","");
-                startActivity(intent);
-            }
+        ImageView button=findViewById(R.id.imageButton);
+        ImageView button1=findViewById(R.id.imageButton2);
+        button.setOnClickListener(view -> {
+            Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
+            intent.putExtra("pdf_url","");
+            startActivity(intent);
         });
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
-                intent.putExtra("pdf_url","");
-                startActivity(intent);
-            }
+        button1.setOnClickListener(view -> {
+            Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
+            intent.putExtra("pdf_url","");
+            startActivity(intent);
         });
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_share) {
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+
+            // type of the content to be shared
+            sharingIntent.setType("text/plain");
+
+            // Body of the content
+            String shareBody = "Your Body Here";
+
+            // subject of the content. you can share anything
+            String shareSubject = "Your Subject Here";
+
+            // passing body of the content
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+
+            // passing subject of the content
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+            startActivity(Intent.createChooser(sharingIntent, "Share using"));
+        } else {// If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

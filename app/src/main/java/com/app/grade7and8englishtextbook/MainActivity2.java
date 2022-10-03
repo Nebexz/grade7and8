@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
+
 public class MainActivity2 extends AppCompatActivity {
 
     PDFView pdfView;
