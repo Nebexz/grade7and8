@@ -11,8 +11,10 @@
         android:theme="@style/Theme.Grade7And8MathsTextbook">
         <activity
             android:name=".MainActivity2"
+
             android:exported="false" />
         <activity
+            android:label="G7 and G8 English TextBook"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
