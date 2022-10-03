@@ -14,19 +14,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView button=findViewById(R.id.imageButton);
         ImageView button1=findViewById(R.id.imageButton2);
+
         button.setOnClickListener(view -> {
             Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
-            intent.putExtra("pdf_url","");
+            intent.putExtra("key_position",0);
             startActivity(intent);
         });
         button1.setOnClickListener(view -> {
             Intent intent= new Intent(getApplicationContext(),MainActivity2.class);
-            intent.putExtra("pdf_url","");
+            intent.putExtra("key_position",1);
             startActivity(intent);
         });
 
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
             sharingIntent.setType("text/plain");
 
             // Body of the content
-            String shareBody = "Your Body Here";
+            String shareBody = "https://play.google.com/store/apps/details?id=com.app.grade7and8englishtextbook";
 
             // subject of the content. you can share anything
-            String shareSubject = "Your Subject Here";
+            String shareSubject = "Hey, I'm using Grade 7 and 8 Ethiopian English Textbook download it on Playstore";
 
             // passing body of the content
             sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);

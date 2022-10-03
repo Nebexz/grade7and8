@@ -21,11 +21,12 @@ public class MainActivity2 extends AppCompatActivity {
 
         if (book_position==0){
 
-            pdfView.fromAsset("English G 7 .pdf").load();
+            pdfView.fromAsset("English G 7 .pdf").fitEachPage(true).load();
+
 
         }
         else if (book_position==1){
-            pdfView.fromAsset("English G 8 .pdf").load();
+            pdfView.fromAsset("English G 8 .pdf").fitEachPage(true).load();
         }
     }
 
