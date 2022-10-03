@@ -3,11 +3,20 @@ package com.app.grade7and8englishtextbook;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -80,10 +89,26 @@ public class MainActivity extends AppCompatActivity {
             // passing subject of the content
             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
             startActivity(Intent.createChooser(sharingIntent, "Share using"));
-        } else {// If we got here, the user's action was not recognized.
+        }
+        if(item.getItemId()==R.id.privacy) {
+
+
+            Uri uri = Uri.parse("https://divvy-upp.web.app/privacypolicy_1");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+
+
+
+        }
+        else {// If we got here, the user's action was not recognized.
             // Invoke the superclass to handle it.
             return super.onOptionsItemSelected(item);
         }
+
+
+
+
+
         return super.onOptionsItemSelected(item);
     }
 
